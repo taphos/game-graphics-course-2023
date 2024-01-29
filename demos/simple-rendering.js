@@ -76,16 +76,10 @@ let fragmentShader = `
 // **             Application processing               **
 // ******************************************************
 
-let bgColor = vec4.fromValues(1.0, 0.2, 0.3, 1.0);
-let fgColor = vec4.fromValues(1.0, 0.9, 0.5, 1.0);
+let bgColor = vec4.fromValues(1.0, 0.2, 3.3, 5.0);
+let fgColor = vec4.fromValues(1.0, 0.9, 3.5, 5.0);
 
-bgColor[0] = Math.sin(time) * 0.5 + 0.5;
-    bgColor[1] = Math.cos(time) * 0.5 + 0.5;
-    bgColor[2] = Math.sin(time * 0.7) * 0.5 + 0.5;
-    
-    fgColor[0] = Math.cos(time * 1.3) * 0.5 + 0.5;
-    fgColor[1] = Math.sin(time * 0.8) * 0.5 + 0.5;
-    fgColor[2] = Math.cos(time * 0.4) * 0.5 + 0.5;
+
 
 app.clearColor(bgColor[0], bgColor[1], bgColor[2], bgColor[3])
     .enable(PicoGL.DEPTH_TEST)
