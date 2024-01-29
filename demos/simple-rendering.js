@@ -48,7 +48,7 @@ let vertexShader = `
     {
         gl_Position = modelViewProjectionMatrix * vec4(position, 1.0);
         vec3 viewNormal = (modelViewMatrix * vec4(normal, 0.0)).xyz;
-        color = mix(bgColor * 0.8, fgColor, viewNormal.z) + pow(viewNormal.z, 20.0);
+        color = mix(bgColor * 0.01, fgColor, viewNormal.z) + pow(viewNormal.z, 10.0);
     }
 `;
 
@@ -106,7 +106,7 @@ let drawCall = app.createDrawCall(program, vertexArray)
     .uniform("fgColor", fgColor);
 
 function draw(timems) {
-    const time = timems * 0.001;
+    const time = timems * 0.0005;
 
     mat4.perspective(projMatrix, Math.PI / 4, app.width / app.height, 0.1, 100.0);
     mat4.lookAt(viewMatrix, vec3.fromValues(3, 0, 2), vec3.fromValues(0, 0, 0), vec3.fromValues(0, 1, 0));
